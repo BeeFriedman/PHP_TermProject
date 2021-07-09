@@ -1,21 +1,22 @@
 <?php
     session_start();
     $pageIdentifier = "submission";
-    $username = ["Barry", "Alex", "Leah"];
-    $password = ["Barry" => "12345abc", "Alex" => "runlong", "Leah" => "2021where"];
     include "header.php";
     
-    foreach($username as $user){
-        if($_POST["username"] === $user){
-            if($_POST["password"] === $password[$user]){
-                echo "<a href='index.php'>Dashboard</a>";
-                setcookie("username", $user);
-                $_SESSION["loggedin"] = TRUE;
-            }
-        }
+    $conn = mysqli_connect("localhost", "root", "BForceat566", "manageschool");
+    $query = "SELECT username FROM authorizedusers WHERE username='$_POST[username]' AND password='$_POST[password]'";
+    $result = mysqli_query($conn, $query);
+    $posts = mysqli_fetch_assoc($result);
+
+    if(mysqli_num_rows($result) == 1){
+        echo "<a href='index.php'>Dashboard</a>";
+        setcookie("username", $posts['username']);
+        $_SESSION["loggedin"] = TRUE;       
     }
-    if(!$_SESSION["loggedin"] == TRUE){
-        $_SESSION["loggedin"] = FALSE;
+    else{
+       $_SESSION["loggedin"] = False; 
+       echo 'Invalid username or password!';
+       header("Refresh: 3; url = login.php");
     }
     include 'footer.php';
 ?>
