@@ -1,4 +1,4 @@
-<?php $pageIdentifier = "login"; include "header.php"; ?>
+<?php $pageIdentifier = "login"; include "Inc/header.php"; ?>
         <div>
             <form action="submission.php" name="login" method="POST">
                 <input class="textBox" type="text" name="username" placeholder="Enter your username" maxlength="20"/>
@@ -6,6 +6,6 @@
                 <input class="button" type="submit" value="Submit"/>
             </form>
         </div>
-<?php include "footer.php"; ?>
+<?php include "Inc/footer.php"; ?>
 
 
