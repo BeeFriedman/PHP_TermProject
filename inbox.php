@@ -1,5 +1,5 @@
-<?php $pageIdentifier = "inbox"; include "header.php"; ?>
+<?php $pageIdentifier = "inbox"; include "Inc/header.php"; ?>
 <?php 
 echo "Inbox" ?>
-<?php include "footer.php"; ?>
+<?php include "Inc/footer.php"; ?>
 

@@ -1,7 +1,7 @@
 <?php
     session_start();
     $pageIdentifier = "submission";
-    include "header.php";
+    include "Inc/header.php";
     
     $conn = mysqli_connect("localhost", "root", "BForceat566", "manageschool");
     $query = "SELECT username FROM authorizedusers WHERE username='$_POST[username]' AND password='$_POST[password]'";
@@ -18,6 +18,6 @@
        echo 'Invalid username or password!';
        header("Refresh: 3; url = login.php");
     }
-    include 'footer.php';
+    include 'Inc/footer.php';
 ?>
 

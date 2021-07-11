@@ -1,3 +1,3 @@
-<?php $pageIdentifier = "courses"; include "header.php"; ?>
+<?php $pageIdentifier = "courses"; include "Inc/header.php"; ?>
 <?php  echo "Courses" ?>
-<?php include "footer.php"; ?>
+<?php include "Inc/footer.php"; ?>

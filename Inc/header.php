@@ -30,7 +30,7 @@
     </head>
     <body class="<?php echo $class ?>"> 
         <header class="header">
-            <img src="Assets/Logo.png" alt="Logo"/>
+            <img src="../Assets/Logo.png" alt="Logo"/>
         </header>
         <?php include "menu.php"; ?>
         <hr>

@@ -1,4 +1,4 @@
-<?php $pageIdentifier = "grades"; include "header.php"; ?>
+<?php $pageIdentifier = "grades"; include "Inc/header.php"; ?>
 <?php  echo "Grades"?>
- <?php include "footer.php"; ?>
+ <?php include "Inc/footer.php"; ?>
 
