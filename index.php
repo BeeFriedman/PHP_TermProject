@@ -1,6 +1,6 @@
 <?php 
 $pageIdentifier = "dash"; 
-include "Inc/header.php"; 
+include "inc/header.php"; 
 session_start();
 
 if(!isset($_SESSION["loggedin"]) OR !$_SESSION["loggedin"] == TRUE){
@@ -19,4 +19,4 @@ else{
 ?>
 
 
-<?php include "Inc/footer.php"; ?>
+<?php include "inc/footer.php"; ?>

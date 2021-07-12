@@ -1,8 +1,8 @@
 <?php 
     session_start();
     $pageIdentifier = "courses"; 
-    include "Inc/header.php"; 
-    require "Config/db.php";
+    include "inc/header.php"; 
+    require "config/db.php";
     echo "<p>Courses you're enrolled in.</p>";
 
     $course_query = "SELECT courses.code, courses.name, courses.description FROM studentscourses JOIN courses ON courses.id = course_id where student_id = {$_SESSION["student_id"]};";
@@ -26,5 +26,5 @@
 
 <?php
     endforeach;
-    include "Inc/footer.php"; 
+    include "inc/footer.php"; 
 ?>
