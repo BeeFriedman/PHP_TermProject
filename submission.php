@@ -1,8 +1,8 @@
 <?php
     session_start();
     $pageIdentifier = "submission";
-    require "Config/db.php";
-    include "Inc/header.php";
+    require "config/db.php";
+    include "inc/header.php";
     
     $query = "SELECT id, username FROM authorizedusers WHERE username='$_POST[username]' AND password='$_POST[password]'";
     $result = mysqli_query($conn, $query);
@@ -19,6 +19,6 @@
        echo 'Invalid username or password!';
        header("Refresh: 3; url = login.php");
     }
-    include 'Inc/footer.php';
+    include 'inc/footer.php';
 ?>
 
