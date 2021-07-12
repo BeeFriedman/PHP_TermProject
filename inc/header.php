@@ -1,5 +1,5 @@
 <?php
-    switch($pageIdentifier) {
+    switch($_SESSION["pageIdentifier"]) {
         case "dash":
             $class = "dash";
             break;
