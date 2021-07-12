@@ -3,6 +3,10 @@ body{
     margin: 0;  
 }
 
+div h1,h2{
+    margin:15px;
+}
+
 .header{
     width: auto;
     height: 75px;
@@ -35,12 +39,52 @@ body{
     color: #911600;
 }
 
+.button{
+    margin-left: 15px;
+    height: 35px;
+    font-size: 20px;
+    width: 150px;
+}
+
+.register{
+    margin-top:15px;
+}
+
+.register .button{
+    width: max-content;
+}
+
 table{
     width:max-content;
 }
 
 table, th, td{
     border: 1px solid black;
+}
+
+.textBox {
+    height: 35px;
+    margin-left: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: #006000 solid 1px;
+}
+
+.select {
+    height: 35px;
+    margin-left: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: #006000 solid 1px;
+}            
+
+.radio {
+    font-size:20px; 
+    margin-left: 15px;
+}
+
+.student_info .button{
+    margin-left:0;
 }
 
 footer{
