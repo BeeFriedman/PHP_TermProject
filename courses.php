@@ -2,6 +2,13 @@
     session_start();
     $_SESSION["pageIdentifier"] = "courses"; 
     include "inc/header.php"; 
+
+    if(!isset($_SESSION["loggedin"]) OR !$_SESSION["loggedin"] == TRUE){
+        echo "ERROR: Not logged in!";
+        include "inc/footer.php";
+        exit();
+    }
+
     require "config/db.php";
     echo "<h1><u>Courses you're enrolled in.</u></h1>";
 
