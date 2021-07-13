@@ -25,27 +25,24 @@
         $_SESSION["pageIdentifier"] = "submission";
         require "config/db.php";
         include "inc/header.php";
-        $is_admin = "no";
+        $is_admin = "User";
 
         if($_POST["type"] == "Admin"){
-            $is_admin = "yes";
+            $is_admin = "Admin";
         }
 
-        $query = "INSERT INTO authorizedusers (username, password, admin) values
+        $query = "INSERT INTO authorizedusers (username, password, user_type) values
         ('$_POST[username]', '$_POST[password]', '$is_admin');";
-        $result= mysqli_query($conn, $query);
-        print_r(mysqli_error($conn));
+        mysqli_query($conn, $query);
+
         $query = "SELECT id FROM authorizedusers WHERE username='$_POST[username]';";
         $result = mysqli_query($conn, $query);
         $posts = mysqli_fetch_assoc($result);
-        print_r(mysqli_error($conn));
-        print_r($posts);
         $id = $posts["id"];
 
         $query = "INSERT INTO students (user_id, first_name, last_name, phonenumber) values
                  ($id, '$_POST[first]', '$_POST[last]', '$_POST[phone]');";
-        $result = mysqli_query($conn, $query);
-        print_r(mysqli_error($conn));
+        mysqli_query($conn, $query);
     }
 
     include 'inc/footer.php';
