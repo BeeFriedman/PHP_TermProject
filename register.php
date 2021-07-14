@@ -1,10 +1,11 @@
 <?php
-    $_SESSION["pageIdentifier"] = "register";
+    $_SESSION["page_identifier"] = "register";
     include "inc/header.php";
 ?>
     <div>
         <h2><b>Enter Student Information</b></h2>
         <form class="student_info" action="submission.php" name="studentInfo" method="POST">
+            <input type="hidden" name="form_type" value="registration"/>       
             <input class="textBox" type="text" name="username" placeholder="Username" maxlength="20"/>
             <input class="textBox" type="password" name="password" placeholder="Password" maxlength="20"/><br><br>
             <input class="textBox" type="text" name="first" placeholder="First Name" maxlength="20"/>

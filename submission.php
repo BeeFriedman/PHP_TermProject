@@ -1,28 +1,32 @@
 <?php
     session_start();
-    if($_SESSION["pageIdentifier"] == "login"){
-        $_SESSION["pageIdentifier"] = "submission";
+    $_SESSION["page_identifier"] = "submission";
+
+    //checking if the form is a login in form or a new user form.
+    if($_POST["form_type"] == "login"){
         require "config/db.php";
         include "inc/header.php";
         
-        $query = "SELECT id, username FROM authorizedusers WHERE username='$_POST[username]' AND password='$_POST[password]'";
-        $result = mysqli_query($conn, $query);
-        $posts = mysqli_fetch_assoc($result);
-        $_SESSION["student_id"] = $posts["id"];
-    
-        if(mysqli_num_rows($result) == 1){
-            echo "<a href='index.php'>Dashboard</a>";
-            setcookie("username", $posts['username']);
-            $_SESSION["loggedin"] = TRUE;       
+        $validate_user_query = "SELECT id, username FROM authorizedusers WHERE username='$_POST[username]' AND password='$_POST[password]'";
+        $raw_user_validation_result = mysqli_query($conn, $validate_user_query);
+        $user_validation_result_array = mysqli_fetch_assoc($raw_user_validation_result);
+
+        //checks if the database verified the user, if true then it sets the 
+        // session loggedin to true then it sets the student_id and a cookie 
+        // then redirects to index.php, else it redirects to login.php.
+        if(mysqli_num_rows($raw_user_validation_result) == 1){
+            setcookie("username", $user_validation_result_array["username"]);
+            $_SESSION["loggedin"] = TRUE;
+            $_SESSION["student_id"] = $user_validation_result_array["id"];
+            header("Location: index.php");       
         }
         else{
            $_SESSION["loggedin"] = False; 
-           echo 'Invalid username or password!';
+           echo "<h2>Invalid username or password!</h2>";
            header("Refresh: 3; url = login.php");
         }
     }
     else{
-        $_SESSION["pageIdentifier"] = "submission";
         require "config/db.php";
         include "inc/header.php";
         $is_admin = "User";
@@ -31,18 +35,36 @@
             $is_admin = "Admin";
         }
 
-        $query = "INSERT INTO authorizedusers (username, password, user_type) values
-        ('$_POST[username]', '$_POST[password]', '$is_admin');";
-        mysqli_query($conn, $query);
+        $check_login_query = "SELECT username FROM authorizedusers WHERE username='$_POST[username]'";
+        $raw_login_check_results = mysqli_query($conn, $check_login_query);
 
-        $query = "SELECT id FROM authorizedusers WHERE username='$_POST[username]';";
-        $result = mysqli_query($conn, $query);
-        $posts = mysqli_fetch_assoc($result);
-        $id = $posts["id"];
-
-        $query = "INSERT INTO students (user_id, first_name, last_name, phonenumber) values
-                 ($id, '$_POST[first]', '$_POST[last]', '$_POST[phone]');";
-        mysqli_query($conn, $query);
+        $check_user_query = "SELECT first_name FROM students WHERE first_name='$_POST[first]' AND last_name='$_POST[last]'";
+        $raw_user_check_results = mysqli_query($conn, $check_user_query);
+        
+        //checks if user already exsits, if it doesn't then checks if username is already taken.
+        //if it passes all checks, then it inserts the new user in the database.
+        if(mysqli_num_rows($raw_user_check_results) == 1){
+            echo "<h2>You are already registered! Please log in!</h2>";
+            header("Refresh: 3; url = login.php");
+        }
+        elseif(mysqli_num_rows($raw_login_check_results) == 1){
+            echo "<h2>Sorry, this username is already in use!</h2>";
+            header("Refresh: 3; url = login.php");
+        }
+        else{
+            $set_user_query = "INSERT INTO authorizedusers (username, password, user_type) values
+            ('$_POST[username]', '$_POST[password]', '$is_admin');";
+            mysqli_query($conn, $query);
+    
+            $query = "SELECT id FROM authorizedusers WHERE username='$_POST[username]';";
+            $result = mysqli_query($conn, $query);
+            $posts = mysqli_fetch_assoc($result);
+            $id = $_SESSION["student_id"];
+    
+            $query = "INSERT INTO students (user_id, first_name, last_name, phonenumber) values
+                     ($id, '$_POST[first]', '$_POST[last]', '$_POST[phone]');";
+            mysqli_query($conn, $query);
+        }
     }
 
     include 'inc/footer.php';
