@@ -1,16 +1,14 @@
 <?php 
-session_start();
-$_SESSION["pageIdentifier"] = "dash"; 
-include "inc/header.php"; 
+    session_start();
+    $_SESSION["page_identifier"] = "dash"; 
+    include "inc/header.php"; 
 
-if(!isset($_SESSION["loggedin"]) OR !$_SESSION["loggedin"] == TRUE){
-    echo "ERROR: Not logged in!";
-    header("Refresh: 3; url = login.php");
-}
-else{
-    echo "<h1>Hello $_COOKIE[username]</h1>";
-}
+    if(!isset($_SESSION["loggedin"]) OR !$_SESSION["loggedin"] == TRUE){
+        header("Location: login.php");
+    }
+    else{
+        echo "<h1>Hello $_COOKIE[username]</h1>";
+    }
+
+    include "inc/footer.php"; 
 ?>
-
-
-<?php include "inc/footer.php"; ?>
