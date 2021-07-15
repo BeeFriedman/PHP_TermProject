@@ -54,15 +54,16 @@
         else{
             $set_user_query = "INSERT INTO authorizedusers (username, password, user_type) values
             ('$_POST[username]', '$_POST[password]', '$is_admin');";
-            mysqli_query($conn, $query);
+            mysqli_query($conn, $set_user_query);
     
             $query = "SELECT id FROM authorizedusers WHERE username='$_POST[username]';";
             $result = mysqli_query($conn, $query);
             $posts = mysqli_fetch_assoc($result);
-            $id = $_SESSION["student_id"];
+            $id = $posts["id"];
     
-            $query = "INSERT INTO students (user_id, first_name, last_name, phonenumber) values
-                     ($id, '$_POST[first]', '$_POST[last]', '$_POST[phone]');";
+            $query = "INSERT INTO students (user_id, first_name, last_name, phonenumber, email,
+            major, campus, education, student_type) values ($id, '$_POST[first]', '$_POST[last]',
+            '$_POST[phone]', '$_POST[email]', '$_POST[major]', '$_POST[campuses]', '$_POST[level]', '$_POST[type]');";
             mysqli_query($conn, $query);
         }
     }
