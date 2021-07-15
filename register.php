@@ -19,7 +19,7 @@
             <input class="textBox" type="password" name="password" placeholder="Password" maxlength="20" required/><br><br>
             <input class="textBox" type="text" name="first" placeholder="First Name" maxlength="20" required/>
             <input class="textBox" type="text" name="last" placeholder="Last Name" maxlength="20" required/><br><br>
-            <input class="textBox" type="tel" name="phone" placeholder="Phone Number" maxlength="12"required/>
+            <input class="textBox" type="tel" name="phone" placeholder="Phone Number" maxlength="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/>
             <input class="textBox" type="email" name="email" placeholder="Email" maxlength="25" required/><br><br>
             <select class="select" name="type" required>
                 <option selected disabled>Select user type</option>

@@ -39,6 +39,12 @@ div h1,h2{
     color: #911600;
 }
 
+.confirm{
+    width:fit-content;
+    text-align: center;
+    border:black solid 1px;
+}
+
 .button{
     margin-left: 15px;
     height: 35px;

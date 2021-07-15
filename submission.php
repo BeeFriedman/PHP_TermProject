@@ -17,7 +17,6 @@
         if(mysqli_num_rows($raw_user_validation_result) == 1){
             setcookie("username", $user_validation_result_array["username"]);
             $_SESSION["loggedin"] = TRUE;
-            $_SESSION["student_id"] = $user_validation_result_array["id"];
             header("Location: index.php");       
         }
         else{
@@ -52,6 +51,19 @@
             header("Refresh: 3; url = login.php");
         }
         else{
+
+            foreach($_POST as $p){
+                mysqli_real_escape_string($conn, $p);
+            }
+
+            foreach($_POST as $p){
+                if(!isset($p)){
+                    echo "<h2>ERROR: Missing input.</h2>";
+                    header("Refresh: 3; url = login.php");
+                }
+            }
+            $_SESSION["post"] = $_POST;
+
             $set_user_query = "INSERT INTO authorizedusers (username, password, user_type) values
             ('$_POST[username]', '$_POST[password]', '$is_admin');";
             mysqli_query($conn, $set_user_query);
@@ -65,6 +77,7 @@
             major, campus, education, student_type) values ($id, '$_POST[first]', '$_POST[last]',
             '$_POST[phone]', '$_POST[email]', '$_POST[major]', '$_POST[campuses]', '$_POST[level]', '$_POST[type]');";
             mysqli_query($conn, $query);
+            header("Refresh: 3; url = confimation.php");
         }
     }
 
