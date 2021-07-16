@@ -51,7 +51,8 @@
                 <input type ="radio" name="level" value="High School"/><br>
                 <label>Associate Degree</label>
                 <input type ="radio" name="level" value="Associate Degree"/><br><br>
-            <div>
+            </div>
             <input class="button" type="submit" value="Submit"/>
         </form>
     </div>
+<?php include "inc/footer.php"; ?>
