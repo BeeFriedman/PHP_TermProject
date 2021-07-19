@@ -17,6 +17,7 @@
         if(mysqli_num_rows($raw_user_validation_result) == 1){
             setcookie("username", $user_validation_result_array["username"]);
             $_SESSION["loggedin"] = TRUE;
+            $_SESSION["student_id"] = $user_validation_result_array["id"];
             header("Location: index.php");       
         }
         else{

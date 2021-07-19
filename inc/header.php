@@ -11,8 +11,10 @@
             break;
         case "inbox":
             $class = "inbox";
+            break;
         case "login":
             $class = "login";
+            break;
         case "submission":
             $class = "submission";
             break;
