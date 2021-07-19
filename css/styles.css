@@ -3,7 +3,6 @@ body{
     margin: 0; 
     position: relative;
     min-height: 100vh;
-    padding-bottom: 50px;
 }
 
 div h1,h2{
@@ -48,13 +47,6 @@ div h1,h2{
     border:black solid 1px;
 }
 
-.button{
-    margin: 15px;
-    height: 35px;
-    font-size: 20px;
-    width: 150px;
-}
-
 table{
     width:max-content;
 }
@@ -63,43 +55,15 @@ table, th, td{
     border: 1px solid black;
 }
 
-.textBox {
-    height: 45px;
-    margin-top: 25px;
-    margin-left: 30px;
-    padding-bottom: 0%;
-    font-size: 20px;
-    border-radius: 5px;
-    border: #006000 solid 1px;
+.buffer{
+    text-align: center;
+    padding-bottom: 50px;
 }
 
-.select {
-    height: 45px;
-    width: 258px;
-    margin-top: 25px;
-    margin-left: 30px;
-    padding-bottom: 0%;
-    font-size: 20px;
-    border-radius: 5px;
-    border: #006000 solid 1px;
-}  
+/* --Forms-- */
 
-#campus{
-    width: 458px;
-}  
-
-.radio {
-    font-size:20px; 
-    margin: 15px;
-}
-
-.button_register{
-    margin:15px;
-    height: 35px;
-    width: 170px;
-}
-
-.form{
+/* Registration Form */
+.form .student_info{
     width: 40vw;
     margin: 25px auto;
     text-align: center;
@@ -107,11 +71,144 @@ table, th, td{
     border-radius: 5px;
 }
 
+.student_info .textBox {
+    height: 45px;
+    margin: 20px;
+    margin-top: 25px;
+    padding-bottom: 0%;
+    font-size: 20px;
+    border-radius: 5px;
+    border: #006000 solid 1px;
+}
+
+.student_info .select {
+    height: 45px;
+    width: 258px;
+    margin: 20px;
+    margin-top: 25px;
+    padding-bottom: 0%;
+    font-size: 20px;
+    border-radius: 5px;
+    border: #006000 solid 1px;
+}  
+
+.student_info .radio {
+    font-size:20px; 
+    margin: 15px;
+}
+
+.student_info .button{
+    margin: 15px;
+    height: 35px;
+    font-size: 20px;
+    width: 150px;
+}
+
+#campus{
+    width: 458px;
+}
+
+/* Contact Form */
+.form .contact_form{
+    text-align: left;
+    width: 40vw;
+    margin: 25px auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: black solid 1px;
+    border-radius: 5px;
+}
+
+.contact_form .textBox {
+    height: 35px;
+    width: 350px;
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: #006000 solid 1px;
+}
+
+.contact_form .textArea {
+    height: 350px;
+    width: 550px;
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    resize: none;
+    border: #006000 solid 1px;
+}
+
+.contact_form .button{
+    height: 35px;
+    font-size: 20px;
+    width: 150px;
+}
+
+.button_holder{
+    text-align: center;
+} 
+
+.success{
+    background-color:#1bb51b;
+    margin: -5px auto;
+    padding: 5px;
+    width: fit-content;
+    height: 30px;
+    border: #1bb51b solid 1px;
+    border-radius: 8px;
+}
+
+/* Login Form */
+
+.form .login{
+    text-align: center;
+    width: 35vw;
+    margin: 100px auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: black solid 1px;
+    border-radius: 5px;
+}
+
+.login .textBox {
+    height: 45px;
+    width: 350px;
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 20px;
+    border-radius: 5px;
+    border: #006000 solid 1px;
+}
+
+.login .button{
+    height: 35px;
+    font-size: 20px;
+    width: 200px;
+}
+
+.login a{
+    text-decoration: none;
+    color:black;
+}
+
 footer{
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 50px;
-    background-color: #6a6a6a;
+    background-color: #9e9b9b;
+}
+
+footer p{
+    margin-left: 15px;
+}
+
+.contact_link{
+    position: absolute;
+    right: 0;
+    top:0;
+    margin-right: 15px;
 }
 
