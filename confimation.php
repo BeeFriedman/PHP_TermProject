@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    $_SESSION["page_identifier"] = "confimation"; 
     include "inc/header.php"; 
     require "config/db.php";
 ?>

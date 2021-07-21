@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    $_SESSION["page_identifier"] = "courses"; 
     include "inc/header.php"; 
 
     if(!isset($_SESSION["loggedin"]) OR !$_SESSION["loggedin"] == TRUE){

@@ -1,5 +1,4 @@
 <?php
-    $_SESSION["page_identifier"] = "dash";
     include "inc/header.php";
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;

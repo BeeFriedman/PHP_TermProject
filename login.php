@@ -1,6 +1,5 @@
 <?php 
     session_start();
-    $_SESSION["page_identifier"] = "dash";  
     include "inc/header.php"; 
 ?>
     <div class="form">

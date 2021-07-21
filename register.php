@@ -1,5 +1,4 @@
 <?php
-    $_SESSION["page_identifier"] = "dash";
     require "config/db.php";
     include "inc/header.php";
 
