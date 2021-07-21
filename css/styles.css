@@ -28,12 +28,9 @@ div h1,h2{
     font-family: 'Courier New', monospace;
 }
 
-.dash > .menu > a#dash,
-.courses > .menu > a#courses,
-.inbox > .menu > a#inbox,
-.grades > .menu > a#grades{
-    background-color: #d1c0a8;
-    color: #911600;
+.active{
+    background-color: #d1c0a8 !important;
+    color: #911600 !important;
 }
 
 .menu a:hover{

@@ -1,6 +1,5 @@
 <?php
     session_start();
-    $_SESSION["page_identifier"] = "submission";
 
     //checking if the form is a login in form or a new user form.
     if($_POST["form_type"] == "login"){
