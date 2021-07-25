@@ -13,5 +13,4 @@
             <img src="assets/Logo.png" alt="Logo"/>
         </header>
         <?php include "menu.php"; ?>
-        <hr>
 

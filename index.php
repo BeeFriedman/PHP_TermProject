@@ -6,8 +6,10 @@
     }
     else{
         include "inc/header.php"; 
-        echo "<h1>Hello $_COOKIE[username]</h1>";
     }
-
+?>
+    <div class="backgroundImage"></div>
+    <h2 class="caption">The future is now</h2>
+<?php
     include "inc/footer.php"; 
 ?>

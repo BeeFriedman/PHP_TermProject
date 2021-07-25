@@ -3,6 +3,7 @@ body{
     margin: 0; 
     position: relative;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 div h1,h2{
@@ -15,13 +16,18 @@ div h1,h2{
     background-color: #d1c0a8;
 }
 
+.menu{
+    display: flex;
+    flex-direction: row;
+}
+
 .menu > a{
-    float: left;
+    position:relative;
     line-height: 50px;
-    width: 25%;
     height: 50px;
     background-color: #911600;
     color: black;
+    width: 25%;
     text-align: center;
     text-decoration: none;
     font-size: 22px;
@@ -29,6 +35,12 @@ div h1,h2{
 }
 
 .active{
+    display: grid;
+    place-items: center;
+    font-size: 26px !important;
+    border-radius: 0 0 35px 35px;
+    z-index: 2 !important;
+    height: 75px !important;
     background-color: #d1c0a8 !important;
     color: #911600 !important;
 }
@@ -189,6 +201,44 @@ table, th, td{
     text-decoration: none;
     color:black;
 }
+
+/* slideshow */
+
+.backgroundImage {
+    z-index: 1;
+    position:absolute;
+    left:0;
+    top:125px;
+    background-size: 100% 100%;
+    width: 100vw;
+    min-height: calc(100vh - 174px);
+    background-repeat: no-repeat;
+
+}
+
+.caption {
+    z-index: 3;
+    margin: 0;
+    font-size: 30pt;
+    text-transform: uppercase;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.caption:after {
+    content:"\A";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background: #00bbeb;
+    display: inline-block;
+    margin: 0 0 -2px;
+}
+
+/* footer */
 
 footer{
     position: absolute;
