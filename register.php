@@ -26,7 +26,6 @@
                     <option>New Student</option>
                     <option>External Transfer</option>
                     <option>Internal Transfer</option>
-                    <option>Admin</option>
                 </select>
                 <select class="select" name="major" required>
                     <option selected disabled>Select a major<t/option>
@@ -52,7 +51,7 @@
                     <label>Associate Degree</label>
                     <input type ="radio" name="level" value="Associate Degree"/><br><br>
                 </div>
-                <input class="button" type="submit" value="Submit"/>
+                <input class="button" name="submit" type="submit"/>
             </form>
         </div>
     </div>

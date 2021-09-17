@@ -6,6 +6,10 @@ body{
     overflow-x: hidden;
 }
 
+h1 ,h2{
+    margin:25px;
+}
+
 div h1,h2{
     margin:15px;
 }
@@ -56,12 +60,49 @@ div h1,h2{
     border:black solid 1px;
 }
 
-table{
-    width:max-content;
+.table_wrapper{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    min-height: 50vh;
+    height: fit-content;
+    margin: 25px auto;
+    margin-bottom: 50px;
+    text-align: center;
+    border: black solid 1px;
+    border-radius: 5px;
 }
 
-table, th, td{
+table{
+    border-collapse: separate; 
+    border-spacing: 25px;
     border: 1px solid black;
+    margin: auto 25px;
+    text-align: center;
+    width: max-content;
+    height: 75%;
+    border-radius: 5px;
+}
+
+th {
+    min-width: 100px;
+    width: fit-content;
+    padding: 5px;
+    border: 2px solid black;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+td {
+    min-width: 100px;
+    padding: 5px;
+    width: fit-content;
+    border: 1px solid black;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 5px;
 }
 
 .buffer{
@@ -172,9 +213,10 @@ table, th, td{
 /* Login Form */
 
 .form .login{
+    position: relative;
     text-align: center;
     width: 35vw;
-    margin: 100px auto;
+    margin: 4% auto;
     padding-top: 25px;
     padding-bottom: 25px;
     border: black solid 1px;
@@ -182,8 +224,9 @@ table, th, td{
 }
 
 .login .textBox {
+    position: relative;
     height: 45px;
-    width: 350px;
+    width: 80%;
     margin-top: 15px;
     margin-left: 15px;
     font-size: 20px;
@@ -192,9 +235,10 @@ table, th, td{
 }
 
 .login .button{
+    position: relative;
     height: 35px;
     font-size: 20px;
-    width: 200px;
+    width: 45%;
 }
 
 .login a{
@@ -202,9 +246,42 @@ table, th, td{
     color:black;
 }
 
+/* courses Form */
+
+.form .courses{
+    border: 1px solid black;
+    margin: 45px auto;
+    margin-right: 25px;
+    text-align: center;
+    width: fit-content;
+    min-height: 75%;
+    border-radius: 5px;
+}
+
+.courses .select {
+    height: 45px;
+    width: 258px;
+    margin: 20px;
+    margin-top: 25px;
+    padding-bottom: 0%;
+    font-size: 20px;
+    border-radius: 5px;
+    border: black solid 1px;
+}  
+
+.courses .button{
+    margin: 15px;
+    height: 35px;
+    font-size: 20px;
+    width: 150px;
+}
+
+
+
 /* slideshow */
 
 .backgroundImage {
+    background-image: url("../assets/campus.jpg");
     z-index: 1;
     position:absolute;
     left:0;
@@ -216,26 +293,17 @@ table, th, td{
 
 }
 
-.caption {
-    z-index: 3;
-    margin: 0;
-    font-size: 30pt;
-    text-transform: uppercase;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.backgroundImage div {
+    background-color: rgb(167,167,167, 0.5);
+    width: fit-content;
+    margin: 40px 10px 10px 10px;
+    border-radius: 15px;
+    
 }
 
-.caption:after {
-    content:"\A";
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background: #00bbeb;
-    display: inline-block;
-    margin: 0 0 -2px;
+
+.backgroundImage h2, h3 {
+    margin-left: 5px;
 }
 
 /* footer */

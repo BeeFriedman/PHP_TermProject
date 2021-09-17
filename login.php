@@ -1,6 +1,9 @@
 <?php 
     session_start();
     include "inc/header.php"; 
+    if(isset($_SESSION["not_logged_in"]) AND $_SESSION["not_logged_in"] == TRUE){
+        echo '<h1>Error! Invalid Credentials!</h1>';
+    }
 ?>
     <div class="form">
         <form class="login" action="submission.php" name="login" method="POST">

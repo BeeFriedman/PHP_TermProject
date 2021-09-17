@@ -14,25 +14,26 @@
         // session loggedin to true then it sets the student_id and a cookie 
         // then redirects to index.php, else it redirects to login.php.
         if(mysqli_num_rows($raw_user_validation_result) == 1){
+            $student_query = "SELECT id FROM students WHERE user_id=$user_validation_result_array[id]";
+            $raw_student_result = mysqli_query($conn, $student_query);
+            $user_student_array = mysqli_fetch_assoc($raw_student_result);
+    
             setcookie("username", $user_validation_result_array["username"]);
             $_SESSION["loggedin"] = TRUE;
-            $_SESSION["student_id"] = $user_validation_result_array["id"];
+            $_SESSION["not_logged_in"] = FALSE;
+            $_SESSION["user_id"] = $user_validation_result_array["id"];
+            $_SESSION["student_id"] = $user_student_array["id"];
             header("Location: index.php");       
         }
         else{
-           $_SESSION["loggedin"] = False; 
-           echo "<h2>Invalid username or password!</h2>";
-           header("Refresh: 3; url = login.php");
+           $_SESSION["loggedin"] = FALSE;
+           $_SESSION["not_logged_in"] = TRUE;
+           header("Location: login.php");
         }
     }
     else{
         require "config/db.php";
         include "inc/header.php";
-        $is_admin = "User";
-
-        if($_POST["type"] == "Admin"){
-            $is_admin = "Admin";
-        }
 
         $check_login_query = "SELECT username FROM authorizedusers WHERE username='$_POST[username]'";
         $raw_login_check_results = mysqli_query($conn, $check_login_query);
@@ -62,10 +63,9 @@
                     header("Refresh: 3; url = login.php");
                 }
             }
-            $_SESSION["post"] = $_POST;
 
-            $set_user_query = "INSERT INTO authorizedusers (username, password, user_type) values
-            ('$_POST[username]', '$_POST[password]', '$is_admin');";
+            $set_user_query = "INSERT INTO authorizedusers (username, password) values
+            ('$_POST[username]', '$_POST[password]');";
             mysqli_query($conn, $set_user_query);
     
             $query = "SELECT id FROM authorizedusers WHERE username='$_POST[username]';";
@@ -77,7 +77,7 @@
             major, campus, education, student_type) values ($id, '$_POST[first]', '$_POST[last]',
             '$_POST[phone]', '$_POST[email]', '$_POST[major]', '$_POST[campuses]', '$_POST[level]', '$_POST[type]');";
             mysqli_query($conn, $query);
-            header("Refresh: 3; url = confimation.php");
+            header("Location = login.php");
         }
     }
 
